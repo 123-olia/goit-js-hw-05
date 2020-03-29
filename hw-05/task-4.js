@@ -22,27 +22,23 @@ console.log(builder.value); // '=^.^='
 
 class StringBuilder {
   constructor(str) {
-    this._value = [str];
+    this._value = str;
   }
 
   get value() {
-    return this._value.join('');
+    return this._value;
   }
 
   append(str) {
-    this._value.push(str);
-    // console.log(this._value.join(''));
+    this._value = `${this.value}${str}`;
   }
 
   prepend(str) {
-    this._value.unshift(str);
-    // console.log(this._value.join(''));
+    this._value = `${str}${this.value}`;
   }
 
   pad(str) {
-    this._value.unshift(str);
-    this._value.push(str);
-    // console.log(this._value.join(''));
+    this._value = `${str}${this.value}${str}`;
   }
 }
 

@@ -25,12 +25,12 @@ class Car {
    *  distance - общий киллометраж, изначально 0
    */
 
-  constructor({ speed = 0, price, maxSpeed, isOn = false, distance = 0 }) {
-    this.speed = speed;
+  constructor({ price, maxSpeed }) {
+    this.speed = 0;
     this._price = price;
     this.maxSpeed = maxSpeed;
-    this.isOn = isOn;
-    this.distance = distance;
+    this.isOn = true;
+    this.distance = 0;
   }
 
   /*
@@ -93,7 +93,11 @@ class Car {
    * но только в том случае если машина заведена!
    */
   drive(hours) {
-    this.distance += hours * this.speed;
+    if (this.isOn) {
+      this.distance += hours * this.speed;
+    } else {
+      this.distance = 0;
+    }
   }
 }
 
@@ -117,3 +121,11 @@ Car.getSpecs(mustang);
 console.log(mustang.price); // 2000
 mustang.price = 4000;
 console.log(mustang.price); // 4000
+
+// mustang.turnOn();
+// mustang.turnOff();
+// mustang.accelerate(50);
+// mustang.drive(1);
+// mustang.turnOff();
+
+// Car.getSpecs(mustang);

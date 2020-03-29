@@ -29,7 +29,7 @@ class Storage {
   }
 
   getItems() {
-    console.log(this.items);
+    return this.items;
   }
 
   addItem(item) {
